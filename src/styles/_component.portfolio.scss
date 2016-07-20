@@ -1,0 +1,17 @@
+.portfolio-container {
+  padding-left: 7px;
+  padding-top: 20px;
+}
+
+.photo-grid {
+  max-width: 900px;
+  margin: auto;
+}
+
+.photo-grid__item {
+  display: inline-block;
+  img {
+    width: 95%;
+    padding: 0 5px 10px 5px;
+  }
+}

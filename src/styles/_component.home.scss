@@ -1,0 +1,28 @@
+.icons {
+  font-size: 2rem;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.icon-facebook:hover,
+.icon-instagram:hover,
+.icon-tumblr:hover {
+  cursor: pointer;
+  color: #7df7f8;
+}
+
+@include media("<=phone") {
+  h1 {
+    font-size: 3rem;
+  }
+  .header-center {
+    top: 20%;
+  }
+
+  .btn-portfolio {
+    width: 20%;
+  }
+}

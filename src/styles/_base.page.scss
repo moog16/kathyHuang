@@ -1,0 +1,62 @@
+html,
+body {
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.subheader {
+  font-size: 1.5rem;
+  font-family: 'Crimson Text', serif;
+}
+
+.cover {
+  background-image: url('/static/img/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
+.header-center {
+  position: relative;
+  top: 40%;
+  text-align: center;
+  color: white;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  color: white;
+}
+
+.btn {
+  border: 3px solid white;
+  margin: auto;
+  padding: 15px;
+  margin-top: 45px;
+}
+
+.btn-portfolio {
+  width: 10%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.u-ml {
+  margin-left: 10px;
+}
