@@ -3,7 +3,6 @@
     "dependencies": {
       "immutable": "npm:immutable@^3.8.1",
       "include-media": "npm:include-media@^1.4.6",
-      "jsx": "github:floatdrop/plugin-jsx@^1.2.1",
       "masonry-layout": "npm:masonry-layout@^4.1.0",
       "react": "npm:react@^15.0.1",
       "react-addons-test-utils": "npm:react-addons-test-utils@^15.0.1",

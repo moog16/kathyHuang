@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchFlickr } from '/src/action-creators/app';
+import { fetchFlickr } from 'src/action-creators/app';
 
 export const App = React.createClass({
   componentDidMount() {

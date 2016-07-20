@@ -8,10 +8,10 @@ import thunk from 'redux-thunk';
 
 import logger from 'src/middlewares/logger';
 
-import { AppContainer } from 'src/components/App.jsx!';
-import { HomeContainer } from 'src/components/Home.jsx!';
-import { PortfolioContainer } from 'src/components/Portfolio.jsx!';
-import { PhotoContainer } from 'src/components/Photo.jsx!';
+import { AppContainer } from 'src/components/App';
+import { HomeContainer } from 'src/components/Home';
+import { PortfolioContainer } from 'src/components/Portfolio';
+import { PhotoContainer } from 'src/components/Photo';
 
 import appReducer from 'src/reducers/app-reducer.js';
 
