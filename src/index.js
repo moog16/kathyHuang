@@ -10,7 +10,7 @@ import logger from 'src/middlewares/logger';
 
 import { AppContainer } from 'src/components/App';
 import { HomeContainer } from 'src/components/Home';
-import { PortfolioContainer } from 'src/components/Portfolio';
+import { PhotosContainer } from 'src/components/Photos';
 import { PhotoContainer } from 'src/components/Photo';
 
 import appReducer from 'src/reducers/app-reducer.js';
@@ -29,7 +29,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={AppContainer}>
         <IndexRoute component={HomeContainer} />
-        <Route path="portfolio" component={PortfolioContainer}>
+        <Route path="photos" component={PhotosContainer}>
           <Route path=':photoId' component={PhotoContainer} />
         </Route>
       </Route>

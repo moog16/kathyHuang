@@ -3,43 +3,11 @@ body {
   margin: 0;
 }
 
-.container {
-  position: relative;
-  height: 100vh;
-}
 
 h1 {
   font-family: 'Pacifico', cursive;
   font-size: 4rem;
   margin: 0;
-}
-
-.subheader {
-  font-size: 1.5rem;
-  font-family: 'Crimson Text', serif;
-}
-
-.cover {
-  background-image: url('/static/img/cover.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-}
-
-.header-center {
-  position: relative;
-  top: 40%;
-  text-align: center;
-  color: white;
-}
-
-.footer {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  color: white;
 }
 
 .btn {
@@ -50,7 +18,10 @@ h1 {
 }
 
 .btn-portfolio {
-  width: 10%;
+  width: 150px;
+  &:hover {
+    background: rgba(white, 0.4);
+  }
 }
 
 .text-center {

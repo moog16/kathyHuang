@@ -196,6 +196,7 @@ function startServer() {
         connect().use('/static/img',    connect.static('./img')),
         connect().use('/static/fonts',  connect.static('./fonts')),
         connect().use('/src',           connect.static('./src')),
+        connect().use('src',           connect.static('./src')),
         connect().use(apiProxy())
       ];
     }

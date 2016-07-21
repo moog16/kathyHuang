@@ -26,7 +26,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^7.0.0",
     "gulp-sass": "^2.2.0",
-    "systemjs-builder": "0.14.11",
+    "systemjs-builder": "0.15.23",
     "yargs": "^4.6.0"
   },
   "devDependencies": {

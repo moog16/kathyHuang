@@ -4,21 +4,31 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
 export const Home = React.createClass({
+
+  componentWillMount() {
+    const img = document.createElement('img');
+    img.src = '/static/img/cover.jpg';
+    img.onload = function() {
+      const cover = document.querySelector('.cover');
+      cover.classList += ' loaded';
+    }
+  },
+
   render() {
     const { push } = this.props;
 
     return <div className="home-container">
       <div className='cover'></div>
-      <div className='container'>
-        <div className='header-center'>
+      <div className='home__body'>
+        <div className='header'>
           <h1>
             Kathy Huang
           </h1>
           <div className='subheader'>
             Lifestyle and landscape photographer in San Francisco.
           </div>
-          <div className='btn btn-portfolio' onClick={() => push('/portfolio')}>
-            portfolio
+          <div className='btn btn-portfolio' onClick={() => push('/photos')}>
+            my work
           </div>
         </div>
         <div className='footer'>

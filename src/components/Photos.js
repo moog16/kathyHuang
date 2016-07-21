@@ -1,11 +1,12 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import Masonry from 'masonry-layout';
 
 import { debounce } from './../utils/tools';
 
-export const Portfolio = React.createClass({
+export const Photos = React.createClass({
   getInitialState() {
     return {
       masonry: null
@@ -21,18 +22,12 @@ export const Portfolio = React.createClass({
   },
 
   loadPhoto(id) {
-    // this.renderPhoto(id);
     this.state.masonry.layout();
   },
 
-  // renderPhoto(id) {
-  //   const photo = document.querySelector(`#photo_${id}`);
-  //   debugger
-  // },
-
   render() {
     const { photos } = this.props;
-    return <div className="portfolio-container">
+    return <div className="photos-container">
       <div className='photo-grid'>
         {
           photos.map(photo => {
@@ -40,15 +35,20 @@ export const Portfolio = React.createClass({
           })
         }
       </div>
+      { this.props.children }
     </div>
   },
 
   renderPhoto(photo) {
     const id = photo.get('id');
+    const { push } = this.props;
 
     return <div key={id} className='photo-grid__item u-1/3 u-1/2-lap u-1/1-palm'>
-      <img src={photo.get('thumbnailUrl')} id={`photo_${id}`} alt={photo.get('title')}
-        onLoad={debounce(() => this.loadPhoto(id), 150)}/>
+      <img src={photo.get('thumbnailUrl')}
+        id={`photo_${id}`}
+        alt={photo.get('title')}
+        onLoad={debounce(() => this.loadPhoto(id), 250)}
+        onClick={() => push(`/photos/${id}`)}/>
     </div>
   }
 });
@@ -61,7 +61,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
+    push
   }, dispatch);
 }
 
-export const PortfolioContainer = connect(mapStateToProps, mapDispatchToProps)(Portfolio);
+export const PhotosContainer = connect(mapStateToProps, mapDispatchToProps)(Photos);
