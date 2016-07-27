@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Masonry from 'masonry-layout';
 import './../utils/lazyload';
-
 import { debounce } from './../utils/tools';
+
 import LazyLoad from './LazyLoad';
 
 export const Photos = React.createClass({
@@ -38,7 +38,7 @@ export const Photos = React.createClass({
     this.setState({ scrollCounter: updatedScrollCounter });
   },
 
-  loadPhoto(id) {
+  loadPhoto() {
     this.state.masonry.layout();
   },
 
@@ -61,8 +61,8 @@ export const Photos = React.createClass({
       <LazyLoad src={photo.getIn(['small', 'source'])}
         width={photo.getIn(['small', 'width'])}
         height={photo.getIn(['small', 'height'])}
-        onLoad={debounce(() => this.loadPhoto(id), 250)}
         onClick={() => push(`/photos/${id}`)}
+        onLoad={debounce(this.loadPhoto, 400)}
         triggerScroll={scrollCounter}
         alt={photo.get('title')}/>
     </div>

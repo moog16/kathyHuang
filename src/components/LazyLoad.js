@@ -10,10 +10,7 @@ export default React.createClass({
   },
 
   componentDidMount() {
-    const { el } = this;
-    const { height, width } = this.props;
-    el.style.height = `${height}px`;
-    el.style.width = `${width}px`;
+    setTimeout(this.isImgInViewport);
   },
 
   componentWillReceiveProps(nextProps) {
@@ -42,19 +39,29 @@ export default React.createClass({
     if(isInView) {
       el.style.height = 'auto';
       el.style.width = 'auto';
+      this.setState({ hasLoaded: true  });
     }
 
     return isInView;
   },
 
+  getElStyle(showImage) {
+    const { height, width } = this.props;
+    return {
+      height: showImage ? 'auto' : `${height}px`,
+      width: showImage ? 'auto' : `${width}px`,
+    }
+  },
+
   render() {
-    const { src, width, height, onLoad } = this.props;
-    const showImage = this.state.hasLoaded || this.isImgInViewport();
+    const { src, onLoad } = this.props;
+    const showImage = this.state.hasLoaded;
 
     return <div className={classnames( 'lazy-loading-image', {'loaded': showImage} )}
-      ref={ function(el) { this.el = el }.bind(this) }>
-      { showImage ? <img src={src}
-        onLoad={onLoad} /> : null }
+      ref={ function(el) { this.el = el }.bind(this) }
+      style={this.getElStyle()}>
+      { showImage ? <img src={src} onLoad={onLoad} /> : null }
     </div>
   }
+
 });
