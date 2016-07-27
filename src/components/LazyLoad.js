@@ -54,13 +54,13 @@ export default React.createClass({
   },
 
   render() {
-    const { src, onLoad } = this.props;
+    const { src, onLoad, onClick } = this.props;
     const showImage = this.state.hasLoaded;
 
     return <div className={classnames( 'lazy-loading-image', {'loaded': showImage} )}
       ref={ function(el) { this.el = el }.bind(this) }
       style={this.getElStyle()}>
-      { showImage ? <img src={src} onLoad={onLoad} /> : null }
+      { showImage ? <img src={src} onLoad={onLoad} onClick={onClick}/> : null }
     </div>
   }
 
