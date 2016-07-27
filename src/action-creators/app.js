@@ -10,7 +10,7 @@ function setFlickrPhotos(photos) {
 export function fetchFlickr() {
   return dispatch => {
     Api.fetchFlickr().then(photos => {
-      dispatch(setFlickrPhotos(photos.photo));
+      dispatch(setFlickrPhotos(photos));
     });
   }
 }

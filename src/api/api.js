@@ -1,8 +1,8 @@
 function fetchFlickr() {
   return new Promise((resolve, reject) => {
     fetch('/v1/flickr').then(res => {
-      res.json().then(json => {
-        resolve(json.photos);
+      res.json().then(data => {
+        resolve(data.photos);
       });
     });
   });

@@ -3,14 +3,25 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Masonry from 'masonry-layout';
+import './../utils/lazyload';
 
 import { debounce } from './../utils/tools';
+import LazyLoad from './LazyLoad';
 
 export const Photos = React.createClass({
   getInitialState() {
     return {
-      masonry: null
+      masonry: null,
+      scrollCounter: 0
     }
+  },
+
+  componentWillMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   },
 
   componentDidMount() {
@@ -21,6 +32,12 @@ export const Photos = React.createClass({
     this.setState({ masonry });
   },
 
+  handleScroll(e) {
+    const { scrollCounter } = this.state;
+    const updatedScrollCounter = scrollCounter + 1;
+    this.setState({ scrollCounter: updatedScrollCounter });
+  },
+
   loadPhoto(id) {
     this.state.masonry.layout();
   },
@@ -29,11 +46,7 @@ export const Photos = React.createClass({
     const { photos } = this.props;
     return <div className="photos-container">
       <div className='photo-grid'>
-        {
-          photos.map(photo => {
-            return this.renderPhoto(photo)
-          })
-        }
+        { photos.map(photo => this.renderPhoto(photo)) }
       </div>
       { this.props.children }
     </div>
@@ -42,13 +55,16 @@ export const Photos = React.createClass({
   renderPhoto(photo) {
     const id = photo.get('id');
     const { push } = this.props;
+    const { scrollCounter } = this.state;
 
     return <div key={id} className='photo-grid__item u-1/3 u-1/2-lap u-1/1-palm'>
-      <img src={photo.get('thumbnailUrl')}
-        id={`photo_${id}`}
-        alt={photo.get('title')}
+      <LazyLoad src={photo.getIn(['small', 'source'])}
+        width={photo.getIn(['small', 'width'])}
+        height={photo.getIn(['small', 'height'])}
         onLoad={debounce(() => this.loadPhoto(id), 250)}
-        onClick={() => push(`/photos/${id}`)}/>
+        onClick={() => push(`/photos/${id}`)}
+        triggerScroll={scrollCounter}
+        alt={photo.get('title')}/>
     </div>
   }
 });

@@ -17,6 +17,7 @@ System.config({
   map: {
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
+    "classnames": "npm:classnames@2.2.5",
     "core-js": "npm:core-js@1.2.6",
     "immutable": "npm:immutable@3.8.1",
     "include-media": "npm:include-media@1.4.6",

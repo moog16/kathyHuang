@@ -28,11 +28,11 @@ export const Home = React.createClass({
             Lifestyle and landscape photographer in San Francisco.
           </div>
           <div className='btn btn-portfolio' onClick={() => push('/photos')}>
-            my work
+            portfolio
           </div>
         </div>
         <div className='footer'>
-          <div className='icons text-center'>
+          <div className='icons text-right u-mr'>
             <a href='https://www.facebook.com/kathythekat' target='blank'>
               <i className='icon-facebook'></i>
             </a>

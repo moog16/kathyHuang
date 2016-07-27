@@ -10,9 +10,18 @@
 
 .photo-grid__item {
   display: inline-block;
-  img {
+  .lazy-loading-image {
     cursor: pointer;
-    width: 95%;
+    max-width: 95%;
+    transition: 200ms opacity ease;
     padding: 0 5px 10px 5px;
+    img {
+      opacity: 0;
+      width: 100%;
+      height: auto;
+    }
+    &.loaded img {
+      opacity: 1;
+    }
   }
 }

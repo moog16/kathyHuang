@@ -1,6 +1,7 @@
 {
   "jspm": {
     "dependencies": {
+      "classnames": "npm:classnames@^2.2.5",
       "immutable": "npm:immutable@^3.8.1",
       "include-media": "npm:include-media@^1.4.6",
       "masonry-layout": "npm:masonry-layout@^4.1.0",
