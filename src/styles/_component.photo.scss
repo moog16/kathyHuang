@@ -4,14 +4,13 @@
   background-position: 50%;
   width: 100%;
   height: calc(100vh - 40px);
-  position: relative;
 
   & .icon-close {
     cursor: pointer;
     color: white;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 10px;
     font-size: 30px;
   }
 }
